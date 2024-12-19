@@ -18,9 +18,21 @@ Install Python extension: [Python Environments](https://code.visualstudio.com/do
 
 Press `Ctrl + Shift + I` to use
 
+## Go trough
+
+https://code.visualstudio.com/docs
+
 ## Create Your Own Custom File-Icon Theme
 
 ## Customize code spell checker. It's checking to much
 
 ## Fix: render the right colors in vscode terminal instance
+
+## Intellisense
+
+https://code.visualstudio.com/docs/editor/intellisense
+
+## Emmet
+
+https://code.visualstudio.com/docs/editor/emmet
 
