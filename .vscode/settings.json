@@ -8,8 +8,8 @@
     "editor.cursorSmoothCaretAnimation": "on",
     // "editor.fontFamily": "Cascadia Mono",
     "editor.guides.bracketPairs": "active",
-    // "editor.lineNumbers": "interval",
-    "editor.renderWhitespace": "boundary",
+    "editor.lineNumbers": "interval",
+    // "editor.renderWhitespace": "boundary",
     // "workbench.editor.tabActionLocation": "left",
     "workbench.list.smoothScrolling": true,
     // "workbench.sideBar.location": "right",
@@ -26,7 +26,6 @@
     "editor.suggestSelection": "first",
     "editor.tabSize": 4,
     "editor.detsectIndentation": false,
-    "editor.renderIndentGuides": true,
     "editor.unicodeHighlight.invisibleCharacters": false,
     "editor.stickyScroll.enabled": true,
     "editor.hover.sticky": true,
@@ -221,5 +220,6 @@
     "window.nativeTabs": true, // this is great, macOS only
     "window.title": "${rootName}", // this make tabs more readable
     "window.titleBarStyle": "custom",
-    "extensions.autoUpdate": "onlyEnabledExtensions"
+    "extensions.autoUpdate": "onlyEnabledExtensions",
+    "editor.guides.indentation": true
 }
