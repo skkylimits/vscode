@@ -22,3 +22,5 @@ Press `Ctrl + Shift + I` to use
 
 ## Customize code spell checker. It's checking to much
 
+## Fix: render the right colors in vscode terminal instance
+
