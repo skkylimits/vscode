@@ -1,5 +1,7 @@
 # Visual Studio Code
 
+Keep these settings in .vscode/ folder. Or add them to the global settings to apply them to all projects as a default.
+
 ## WSL
 
 Install WSL2 extension and make sure that VSCode is connected to your WSL2 instance.
