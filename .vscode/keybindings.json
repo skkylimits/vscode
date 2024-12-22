@@ -1,22 +1,24 @@
 // Place your key bindings in this file to override the defaults.
 
 // This is my attempt to create a custom keybinding file for Visual Studio Code simulating the browser experience.
+
 [
     {
         "key": "ctrl+t",
-        "command": "workbench.action.files.newUntitledFile" // Opens a new untitled file (tab)
+        "command": "workbench.action.files.newUntitledFile", 
+        "when": "editorTextFocus"
     },
     {
         "key": "ctrl+n",
-        "command": "workbench.action.newWindow" // Opens a new window
+        "command": "workbench.action.newWindow"
     },
     {
-        "key": "ctrl+shift+[",
-        "command": "workbench.files.action.collapseExplorerFolders" // Collapse all folders in the explorer
+        "key": "ctrl+shift+]",
+        "command": "workbench.files.action.collapseExplorerFolders"
     },
     {
         "key": "ctrl+shift+.",
-        "command": "editor.action.insertSnippet", // Insert console.log snippet
+        "command": "editor.action.insertSnippet", 
         "args": {
             "snippet": "console.log($1);$2"
         },
@@ -24,9 +26,7 @@
     }
 ]
 
-// If you place these keybindings in the `.vscode/keybindings.json` file, 
-// they will only apply to the specific project (project-wide).
-//
-// To make them global across all projects and machines (when logged into your account),
-// open the global `keybindings.json` file by pressing `Ctrl+Shift+P`, then search for:
-// "Preferences: Open Keyboard Shortcuts (JSON)" and paste these keybindings there.
+// Paste these settings to Preference: Open Keyboard Shortcuts (JSON) in Visual Studio Code.
+// To launch the Define Keybinding widget, press Ctrl+K Ctrl+K
+// https://code.visualstudio.com/docs/getstarted/keybindings#_keyboard-layoutindependent-bindings
+
