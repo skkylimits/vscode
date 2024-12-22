@@ -1,4 +1,5 @@
 {
+  // add these to the global snippet file so you don't have to add them to every project.
   "import": {
     "scope": "javascript,typescript",
     "prefix": "im",
