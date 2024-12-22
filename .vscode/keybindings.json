@@ -1,0 +1,32 @@
+// Place your key bindings in this file to override the defaults.
+
+// This is my attempt to create a custom keybinding file for Visual Studio Code simulating the browser experience.
+[
+    {
+        "key": "ctrl+t",
+        "command": "workbench.action.files.newUntitledFile" // Opens a new untitled file (tab)
+    },
+    {
+        "key": "ctrl+n",
+        "command": "workbench.action.newWindow" // Opens a new window
+    },
+    {
+        "key": "ctrl+shift+[",
+        "command": "workbench.files.action.collapseExplorerFolders" // Collapse all folders in the explorer
+    },
+    {
+        "key": "ctrl+shift+.",
+        "command": "editor.action.insertSnippet", // Insert console.log snippet
+        "args": {
+            "snippet": "console.log($1);$2"
+        },
+        "when": "editorTextFocus"
+    }
+]
+
+// If you place these keybindings in the `.vscode/keybindings.json` file, 
+// they will only apply to the specific project (project-wide).
+//
+// To make them global across all projects and machines (when logged into your account),
+// open the global `keybindings.json` file by pressing `Ctrl+Shift+P`, then search for:
+// "Preferences: Open Keyboard Shortcuts (JSON)" and paste these keybindings there.
