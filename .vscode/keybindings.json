@@ -13,7 +13,7 @@
         "command": "workbench.action.newWindow"
     },
     {
-        "key": "ctrl+shift+]",
+        "key": "ctrl+shift+[",
         "command": "workbench.files.action.collapseExplorerFolders"
     },
     {
@@ -26,7 +26,7 @@
     }
 ]
 
-// Paste these settings to Preference: Open Keyboard Shortcuts (JSON) in Visual Studio Code.
+// Paste these settings to Ctrl+Shift P -> Preference: Open Keyboard Shortcuts (JSON) in Visual Studio Code.
 // To launch the Define Keybinding widget, press Ctrl+K Ctrl+K
 // https://code.visualstudio.com/docs/getstarted/keybindings#_keyboard-layoutindependent-bindings
 

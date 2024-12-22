@@ -38,3 +38,11 @@ https://code.visualstudio.com/docs/editor/intellisense
 
 https://code.visualstudio.com/docs/editor/emmet
 
+## Keybinding Overlay
+
+I haven't seen a good keybindings overlay extensions. I think it would be a great idea escpecially for beginners.
+
+Let's create one ourselfs!
+
+https://www.reddit.com/media?url=https%3A%2F%2Fpreview.redd.it%2F1bx75yoco9g61.gif%3Fwidth%3D1255%26auto%3Dwebp%26s%3Dc7729bb6f843de79bde436976d288da04b1f6295
+
