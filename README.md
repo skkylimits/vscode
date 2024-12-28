@@ -1,6 +1,6 @@
 # Visual Studio Code
 
-Keep these settings in .vscode/ folder. Or add them to the global settings to apply them to all projects as a default.
+Keep these settings in the `.vscode/` folder or add them to the global settings to apply them to all projects as a default.
 
 ## WSL
 
@@ -8,7 +8,7 @@ Install WSL2 extension and make sure that VSCode is connected to your WSL2 insta
 
 [WSL Tutorial](https://code.visualstudio.com/docs/remote/wsl-tutorial)
 
-## pyenv
+## Pyenv
 
 Install Python extension: [Python Environments](https://code.visualstudio.com/docs/python/environments)
 
@@ -18,31 +18,31 @@ Install Python extension: [Python Environments](https://code.visualstudio.com/do
 
 ## Copilot
 
-Press `Ctrl + Shift + I` to use
+Press `Ctrl + Shift + I` to use.
 
-## Go trough
+## Go Through
 
-https://code.visualstudio.com/docs
+[VSCode Documentation](https://code.visualstudio.com/docs)
 
 ## Create Your Own Custom File-Icon Theme
 
-## Customize code spell checker. It's checking to much
+## Customize Code Spell Checker
 
-## Fix: render the right colors in vscode terminal instance
+## Fix: Render the Right Colors in VSCode Terminal Instance
 
 ## Intellisense
 
-https://code.visualstudio.com/docs/editor/intellisense
+[Intellisense Documentation](https://code.visualstudio.com/docs/editor/intellisense)
 
 ## Emmet
 
-https://code.visualstudio.com/docs/editor/emmet
+[Emmet Documentation](https://code.visualstudio.com/docs/editor/emmet)
 
 ## Keybinding Overlay
 
-I haven't seen a good keybindings overlay extensions. I think it would be a great idea escpecially for beginners.
+I haven't seen a good keybindings overlay extension. I think it would be a great idea especially for beginners.
 
-Let's create one ourselfs!
+Let's create one ourselves!
 
-https://www.reddit.com/media?url=https%3A%2F%2Fpreview.redd.it%2F1bx75yoco9g61.gif%3Fwidth%3D1255%26auto%3Dwebp%26s%3Dc7729bb6f843de79bde436976d288da04b1f6295
+[Example](https://www.reddit.com/media?url=https%3A%2F%2Fpreview.redd.it%2F1bx75yoco9g61.gif%3Fwidth%3D1255%26auto%3Dwebp%26s%3Dc7729bb6f843de79bde436976d288da04b1f6295)
 
