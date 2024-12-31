@@ -33,6 +33,10 @@
     "antfu.iconify",
     "bradlc.vscode-tailwindcss",
     "zignd.html-css-class-completion",
+    "redhat.vscode-yaml",
+
+    // snippets
+    "xabikos.javascriptsnippets",
 
     // utility
     "ritwickdey.LiveServer",

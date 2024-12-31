@@ -86,7 +86,333 @@
 		]
 	},
 	// ========== Markdown ==========
-	"markdown-api-table": {
+	"internal-link": {
+		"scope": "markdown",
+		"prefix": "internal",
+		"body": [
+			"[`${2:description}`](${1:url})"
+		]
+	},
+	"callout": {
+		"scope": "markdown",
+		"prefix": "callout",
+		"body": [
+			"::callout",
+			"---",
+			"icon: i-heroicons-light-bulb",
+			"target: _blank",
+			"to: ${1:url}",
+			"---",
+			"${3:optional}[${2:description}](${1:url})",
+			"::"
+		]
+	},
+	"callout-pdf": {
+		"scope": "markdown",
+		"prefix": "callout pdf",
+		"body": [
+			"::callout",
+			"---",
+			"icon: ${3:i-heroicons-light-bulb}",
+			"target: _blank",
+			"to: ${1:url}",
+			"---",
+			"${2:description}",
+			"::"
+		]
+	},
+	"pdf": {
+		"scope": "markdown",
+		"prefix": "pdf",
+		"body": [
+			"<iframe",
+			"  src=\"${1:url}\"",
+			"  width=\"100%\"",
+			"  height=\"600px\">",
+			"</iframe>"
+		]
+	},
+	"docx": {
+		"scope": "markdown",
+		"prefix": "docx",
+		"body": [
+			"<iframe",
+			"  src=\"${1:url}/preview?/embed\"",
+			"  width=\"100%\"",
+			"  height=\"400\">",
+			"</iframe>",
+			"<p style=\"text-align: center;\">",
+			"  <a href=\"${1:url}/edit\" target=\"_blank\">",
+			"    Switch to Edit Mode",
+			"  </a>",
+			"</p>"
+		]
+	},
+	"slides": {
+		"scope": "markdown",
+		"prefix": "slides",
+		"body": [
+			"<iframe",
+			"    src=\"${1:url}/embed\"",
+			"    width=\"100%\"",
+			"    height=\"400\"",
+			"></iframe>",
+		]
+	},
+	"youtube": {
+		"scope": "markdown",
+		"prefix": "youtube",
+		"body": [
+			"<div style=\"position: relative; width: 100%; height: 0; padding-bottom: 56.25%; overflow: hidden;\">",
+			"  <iframe",
+			"    src=\"https://www.youtube.com/embed/${1:id}\"",
+			"    frameborder=\"0\"",
+			"    allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\"",
+			"    allowfullscreen",
+			"    style=\"position: absolute; top: 0; left: 0; width: 100%; height: 100%;\"",
+			"  ></iframe>",
+			"</div>"
+		]
+	},
+	"note": {
+		"scope": "markdown",
+		"prefix": "note",
+		"body": [
+			"::note",
+			"${1:note}",
+			"::"
+		]
+	},
+	"alert": {
+		"scope": "markdown",
+		"prefix": "alert",
+		"body": [
+			"::alert",
+			"${1:alert}",
+			"::"
+		]
+	},
+	"warning": {
+		"scope": "markdown",
+		"prefix": "warning",
+		"body": [
+			"::warning",
+			"${1:warning}",
+			"::"
+		]
+	},
+	"tip": {
+		"scope": "markdown",
+		"prefix": "tip",
+		"body": [
+			"::tip",
+			"${1:tip}",
+			"::"
+		]
+	},
+	"caution": {
+		"scope": "markdown",
+		"prefix": "caution",
+		"body": [
+			"::caution",
+			"${1:caution}",
+			"::"
+		]
+	},
+	"important": {
+		"scope": "markdown",
+		"prefix": "important",
+		"body": [
+			"::important",
+			"${1:important}",
+			"::"
+		]
+	},
+	"superscript": {
+		"scope": "markdown",
+		"prefix": "superscript",
+		"body": [
+			"<sup>${1:superscript}</sup>"
+		]
+	},
+	"subscript": {
+		"scope": "markdown",
+		"prefix": "subscript",
+		"body": [
+			"<sub>${1:subscript}</sub>"
+		]
+	},
+	"underlined": {
+		"scope": "markdown",
+		"prefix": "underlined",
+		"body": [
+			"<ins>${1:underlined}</ins>"
+		]
+	},
+	"sandbox": {
+		"scope": "markdown",
+		"prefix": "sandbox",
+		"body": [
+			"<iframe",
+			"    height=\"${1:300}\"",
+			"    style=\"width: 100%\"",
+			"    scrolling=\"${2:yes}\"",
+			"    title=\"${3:Sandbox}\"",
+			"    src=\"${4:url}\"",
+			"    frameborder=\"${5:no}\"",
+			"    allowfullscreen=\"${6:true}\"",
+			"></iframe>"
+		]
+	},
+	"collapsible": {
+		"scope": "markdown",
+		"prefix": "collapsible",
+		"body": [
+			"::collapsible",
+			"  :field{name=\"${1:label}\" type=\"${2:string}\" required}",
+			"::"
+		]
+	},
+	"foldable": {
+		"scope": "markdown",
+		"prefix": "foldable",
+		"body": [
+			"::foldable",
+			"#title",
+			"${1:title}",
+			"",
+			"#content",
+			"${2:content}",
+			"::"
+		]
+	},
+	"card": {
+		"scope": "markdown",
+		"prefix": "card",
+		"body": [
+			"::card",
+			"---",
+			"title: ${1:title}",
+			"icon: ${2:icon}",
+			"to: ${3:url}",
+			"target: _blank",
+			"---",
+			"${4:description}",
+			"::"
+		]
+	},
+	"card-group": {
+		"scope": "markdown",
+		"prefix": "card-group",
+		"body": [
+			"::card-group",
+			"  ::card",
+			"  ---",
+			"  title: ${1:1-title}",
+			"  icon: ${2:1-icon}",
+			"  to: ${3:1-url}",
+			"  target: _blank",
+			"  ---",
+			"  ${4:1-description}",
+			"  ::",
+			"  ::card",
+			"  ---",
+			"  title: ${5:2-title}",
+			"  icon: ${6:2-icon}",
+			"  to: ${7:2-url}",
+			"  target: _blank",
+			"  ---",
+			"  ${8:List of Nuxt CLI commands to init, analyze, build, and preview your application.}",
+			"  ::",
+			"::"
+		]
+	},
+	"field": {
+		"scope": "markdown",
+		"prefix": "field",
+		"body": [
+			"::field{name=\"${1:field}\" type=\"${2:type}\" required}",
+			"${3:description}`.",
+			"::"
+		]
+	},
+	"field-group": {
+		"scope": "markdown",
+		"prefix": "field-group",
+		"body": [
+			"::field-group",
+			"  ::field{name=\"${1:field}\" type=\"${2:type}\" required}",
+			"  ${3:description}",
+			"  ::",
+			"  ::field{name=\"${4:field}\" type=\"${5:type}\" required}",
+			"  ${6:description}",
+			"  ::",
+			"  ::field{name=\"${7:field}\" type=\"${8:type}\" required}",
+			"  ${9:description}",
+			"  ::",
+			"::"
+		]
+	},
+	"code-group": {
+		"scope": "markdown",
+		"prefix": "code-group",
+		"body": [
+			"::code-group",
+			"",
+			"  ```${1:shell} [${2:pnpm}]",
+			"  ${3:pnpm add @nuxt/ui}",
+			"  ```",
+			"",
+			"  ```${4:shell} [${5:yarn}]",
+			"  ${6:yarn add @nuxt/ui}",
+			"  ```",
+			"",
+			"  ```${7:shell} [${8:npm}]",
+			"  ${9:npm install @nuxt/ui}",
+			"  ```",
+			"",
+			"::"
+		]
+	},
+	"code-tabs": {
+		"scope": "markdown",
+		"prefix": "code-tabs",
+		"body": [
+			"::tabs",
+			"  ::div",
+			"  ---",
+			"  label: code",
+			"  icon: i-heroicons-code-bracket-square",
+			"  ---",
+			"",
+			"  ```mdc",
+			"  ::callout",
+			"  ${1:code}",
+			"  ::",
+			"  ```",
+			"  ::",
+			"",
+			"  ::div",
+			"  ---",
+			"  label: Preview",
+			"  icon: 5:i-heroicons-magnifying-glass-circle",
+			"  ---",
+			"",
+			"  ::callout",
+			"  ${1:preview}",
+			"  ::",
+			"  ::",
+			"::"
+		]
+	},
+	"shortcut": {
+		"scope": "markdown",
+		"prefix": "shortcut",
+		"body": [
+			":shortcut{value=\"${1:Shift}\"} :shortcut{value=\"${2:meta}\"} :shortcut{value=\"${3:Space}\"}"
+		]
+	},
+	"api-table": {
 		"scope": "markdown",
 		"prefix": "table",
 		"body": [
@@ -110,18 +436,4 @@
 			"</table>",
 		],
 	},
-	"markdown-callout": {
-		"scope": "markdown",
-		"prefix": "callout",
-		"body": [
-			"::callout",
-			"---",
-			"icon: i-heroicons-light-bulb",
-			"target: _blank",
-			"to: ${1:url}",
-			"---",
-			"[${2:description}](${1:url})",
-			"::"
-		]
-	}
 }
