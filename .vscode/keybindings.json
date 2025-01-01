@@ -5,28 +5,45 @@
 [
     {
         "key": "ctrl+t",
-        "command": "workbench.action.files.newUntitledFile", 
+        "command": "workbench.action.files.newUntitledFile", // Create new file
         "when": "editorTextFocus"
     },
     {
         "key": "ctrl+n",
-        "command": "workbench.action.newWindow"
+        "command": "workbench.action.newWindow" // Create new window
     },
     {
         "key": "ctrl+shift+[",
-        "command": "workbench.files.action.collapseExplorerFolders"
+        "command": "workbench.files.action.collapseExplorerFolders" // Collapse folders
     },
     {
         "key": "ctrl+shift+.",
-        "command": "editor.action.insertSnippet", 
+        "command": "editor.action.insertSnippet", // Insert console.log snippet
         "args": {
             "snippet": "console.log($1);$2"
         },
         "when": "editorTextFocus"
-    }
+    },
+    {
+        "key": "alt+f", // Replace with your preferred shortcut
+        "command": "workbench.action.tasks.runTask",
+        "args": "Normalize Image Paths In Markdown"
+    },
+    {
+        "key": "alt+g", // Replace with your preferred shortcut
+        "command": "workbench.action.tasks.runTask",
+        "args": "Update Alt Text In Markdown"
+    },
+       {
+        "key": "ctrl+shift+space",
+        "command": "editor.action.insertSnippet",
+        "when": "editorTextFocus"
+       }
 ]
 
-// Paste these settings to Ctrl+Shift P -> Preference: Open Keyboard Shortcuts (JSON) in Visual Studio Code.
+// Paste these settings to Preference: Open Keyboard Shortcuts (JSON) in Visual Studio Code.
 // To launch the Define Keybinding widget, press Ctrl+K Ctrl+K
 // https://code.visualstudio.com/docs/getstarted/keybindings#_keyboard-layoutindependent-bindings
+
+// ADD: a way to switch between vscode windows
 
