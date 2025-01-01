@@ -86,9 +86,9 @@
 		]
 	},
 	// ========== Markdown ==========
-	"internal-link": {
+	"link-internal": {
 		"scope": "markdown",
-		"prefix": "internal-link",
+		"prefix": "link-internal",
 		"body": [
 			"[`${1:description}`](${2:url})"
 		]
@@ -137,14 +137,18 @@
 		"prefix": "docx",
 		"body": [
 			"<iframe",
-			"  src=\"${1:url}/preview?/embed\"",
-			"  width=\"100%\"",
-			"  height=\"400\">",
+			"    src=\"${1:url}/preview?/embed\"",
+			"    width=\"100%\"",
+			"    height=\"400\"",
+			">",
 			"</iframe>",
 			"<p style=\"text-align: center;\">",
-			"  <a href=\"${1:url}/edit\" target=\"_blank\">",
-			"    Switch to Edit Mode",
-			"  </a>",
+			"    <a",
+			"        target=\"_blank\"",
+			"        href=\"${1:url}/edit\"",
+			"    >",
+			"        Switch to Edit Mode",
+			"    </a>",
 			"</p>"
 		]
 	},
@@ -156,7 +160,8 @@
 			"    src=\"${1:url}/embed\"",
 			"    width=\"100%\"",
 			"    height=\"400\"",
-			"></iframe>",
+			">",
+			"</iframe>"
 		]
 	},
 	"audio": {
@@ -199,7 +204,8 @@
 			"    allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\"",
 			"    allowfullscreen",
 			"    style=\"position: absolute; top: 0; left: 0; width: 100%; height: 100%;\"",
-			"  ></iframe>",
+			"  >",
+			"  </iframe>",
 			"</div>"
 		]
 	},
@@ -215,7 +221,105 @@
 			"    allowfullscreen=\"\"",
 			"    loading=\"lazy\"",
 			"    referrerpolicy=\"no-referrer-when-downgrade\"",
+			">",
+			"</iframe>"
+		]
+	},
+	"sandbox": {
+		"scope": "markdown",
+		"prefix": "sandbox",
+		"body": [
+			"<iframe",
+			"    height=\"${1:400}\"",
+			"    style=\"width: 100%\"",
+			"    scrolling=\"${2:yes}\"",
+			"    title=\"${3:Sandbox}\"",
+			"    src=\"${4:url}\"",
+			"    frameborder=\"${5:no}\"",
+			"    allowfullscreen=\"${6:true}\"",
 			"></iframe>"
+		]
+	},
+	
+	"Code-block": {
+		"prefix": "code-block",
+		"body": [
+			"```${1|python,sql,c,c++,c#,ruby,go,java,php,htm,css,javascript,json,markdown,console,erb,bash,yml,mermaid|}",
+			"${TM_SELECTED_TEXT}$0",
+			"```"
+		],
+	},
+	"code-group": {
+		"scope": "markdown",
+		"prefix": "code-group",
+		"body": [
+			"::code-group",
+			"",
+			"  ```${1:shell} [${2:pnpm}]",
+			"  ${3:pnpm add @nuxt/ui}",
+			"  ```",
+			"",
+			"  ```${4:shell} [${5:yarn}]",
+			"  ${6:yarn add @nuxt/ui}",
+			"  ```",
+			"",
+			"  ```${7:shell} [${8:npm}]",
+			"  ${9:npm install @nuxt/ui}",
+			"  ```",
+			"",
+			"::"
+		]
+	},
+	"code-tabs": {
+		"scope": "markdown",
+		"prefix": "code-tabs",
+		"body": [
+			"::tabs",
+			"  ::div",
+			"  ---",
+			"  label: code",
+			"  icon: i-heroicons-code-bracket-square",
+			"  ---",
+			"",
+			"  ```mdc",
+			"  ::callout",
+			"  ${1:code}",
+			"  ::",
+			"  ```",
+			"  ::",
+			"",
+			"  ::div",
+			"  ---",
+			"  label: Preview",
+			"  icon: 5:i-heroicons-magnifying-glass-circle",
+			"  ---",
+			"",
+			"  ::callout",
+			"  ${2:preview}",
+			"  ::",
+			"  ::",
+			"::"
+		]
+	},
+	"superscript": {
+		"scope": "markdown",
+		"prefix": "superscript",
+		"body": [
+			"<sup>${1:superscript}</sup>"
+		]
+	},
+	"subscript": {
+		"scope": "markdown",
+		"prefix": "subscript",
+		"body": [
+			"<sub>${1:subscript}</sub>"
+		]
+	},
+	"underlined": {
+		"scope": "markdown",
+		"prefix": "underlined",
+		"body": [
+			"<ins>${1:underlined}</ins>"
 		]
 	},
 	"note": {
@@ -272,41 +376,38 @@
 			"::"
 		]
 	},
-	"superscript": {
+	"table": {
 		"scope": "markdown",
-		"prefix": "superscript",
+		"prefix": "table",
 		"body": [
-			"<sup>${1:superscript}</sup>"
+			"| ${1:th1}             | ${2:th2}        | ${3:th3}                        |",
+			"| ----------------| ---------- | -------------------------- |",
+			"| ${4:td1}             | ${5:td2}        | ${6:td3}                        |"
 		]
 	},
-	"subscript": {
+	"api-table": {
 		"scope": "markdown",
-		"prefix": "subscript",
+		"prefix": "table",
 		"body": [
-			"<sub>${1:subscript}</sub>"
-		]
-	},
-	"underlined": {
-		"scope": "markdown",
-		"prefix": "underlined",
-		"body": [
-			"<ins>${1:underlined}</ins>"
-		]
-	},
-	"sandbox": {
-		"scope": "markdown",
-		"prefix": "sandbox",
-		"body": [
-			"<iframe",
-			"    height=\"${1:300}\"",
-			"    style=\"width: 100%\"",
-			"    scrolling=\"${2:yes}\"",
-			"    title=\"${3:Sandbox}\"",
-			"    src=\"${4:url}\"",
-			"    frameborder=\"${5:no}\"",
-			"    allowfullscreen=\"${6:true}\"",
-			"></iframe>"
-		]
+			"<table>",
+			"<tr>",
+			"<td width=\"400px\" valign=\"top\">",
+			"",
+			"### API",
+			"",
+			"Description",
+			"",
+			"</td>",
+			"<td width=\"600px\"><br>",
+			"",
+			"```ts",
+			"// code block",
+			"```",
+			"",
+			"</td>",
+			"</tr>",
+			"</table>",
+		],
 	},
 	"collapsible": {
 		"scope": "markdown",
@@ -397,58 +498,6 @@
 			"::"
 		]
 	},
-	"code-group": {
-		"scope": "markdown",
-		"prefix": "code-group",
-		"body": [
-			"::code-group",
-			"",
-			"  ```${1:shell} [${2:pnpm}]",
-			"  ${3:pnpm add @nuxt/ui}",
-			"  ```",
-			"",
-			"  ```${4:shell} [${5:yarn}]",
-			"  ${6:yarn add @nuxt/ui}",
-			"  ```",
-			"",
-			"  ```${7:shell} [${8:npm}]",
-			"  ${9:npm install @nuxt/ui}",
-			"  ```",
-			"",
-			"::"
-		]
-	},
-	"code-tabs": {
-		"scope": "markdown",
-		"prefix": "code-tabs",
-		"body": [
-			"::tabs",
-			"  ::div",
-			"  ---",
-			"  label: code",
-			"  icon: i-heroicons-code-bracket-square",
-			"  ---",
-			"",
-			"  ```mdc",
-			"  ::callout",
-			"  ${1:code}",
-			"  ::",
-			"  ```",
-			"  ::",
-			"",
-			"  ::div",
-			"  ---",
-			"  label: Preview",
-			"  icon: 5:i-heroicons-magnifying-glass-circle",
-			"  ---",
-			"",
-			"  ::callout",
-			"  ${2:preview}",
-			"  ::",
-			"  ::",
-			"::"
-		]
-	},
 	"tabs": {
 		"scope": "markdown",
 		"prefix": "tabs",
@@ -481,37 +530,5 @@
 			":shortcut{value=\"${1:Shift}\"} :shortcut{value=\"${2:meta}\"} :shortcut{value=\"${3:Space}\"}"
 		]
 	},
-	"table": {
-		"scope": "markdown",
-		"prefix": "table",
-		"body": [
-			"| ${1:th1}             | ${2:th2}        | ${3:th3}                        |",
-			"| ----------------| ---------- | -------------------------- |",
-			"| ${4:td1}             | ${5:td2}        | ${6:td3}                        |"
-		]
-	},
-	"api-table": {
-		"scope": "markdown",
-		"prefix": "table",
-		"body": [
-			"<table>",
-			"<tr>",
-			"<td width=\"400px\" valign=\"top\">",
-			"",
-			"### API",
-			"",
-			"Description",
-			"",
-			"</td>",
-			"<td width=\"600px\"><br>",
-			"",
-			"```ts",
-			"// code block",
-			"```",
-			"",
-			"</td>",
-			"</tr>",
-			"</table>",
-		],
-	},
+	
 }
