@@ -32,7 +32,7 @@
 		],
 		"description": "Export a module"
 	},
-	// ========== JavScript/TypeScript ==========
+	// ========== Vue ==========
 	"vue-script-setup": {
 		"scope": "vue",
 		"prefix": "<sc",
