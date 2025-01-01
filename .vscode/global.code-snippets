@@ -88,9 +88,9 @@
 	// ========== Markdown ==========
 	"internal-link": {
 		"scope": "markdown",
-		"prefix": "internal",
+		"prefix": "internal-link",
 		"body": [
-			"[`${2:description}`](${1:url})"
+			"[`${1:description}`](${2:url})"
 		]
 	},
 	"callout": {
@@ -159,6 +159,35 @@
 			"></iframe>",
 		]
 	},
+	"audio": {
+		"scope": "markdown",
+		"prefix": "audio",
+		"body": [
+			"<audio",
+			"    controls",
+			"    title=\"${1:title}\">",
+			"    <source",
+			"        src=\"${2:url}\"",
+			"        type=\"audio/mp3\">",
+			"    Your browser does not support the audio tag.",
+			"</audio>"
+		],
+	},
+	"video": {
+		"scope": "markdown",
+		"prefix": "video",
+		"body": [
+			"<video",
+			"    controls",
+			"    title=\"${1:title}\"",
+			"    poster=\"${2:poster}\">",
+			"    <source",
+			"        src=\"${3:url}\"",
+			"        type=\"video/mp4\">",
+			"    Your browser does not support the video tag.",
+			"</video>"
+		],
+	},
 	"youtube": {
 		"scope": "markdown",
 		"prefix": "youtube",
@@ -172,6 +201,21 @@
 			"    style=\"position: absolute; top: 0; left: 0; width: 100%; height: 100%;\"",
 			"  ></iframe>",
 			"</div>"
+		]
+	},
+	"maps": {
+		"scope": "markdown",
+		"prefix": "maps",
+		"body": [
+			"<iframe",
+			"    src=\"${1:https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52013.23489943439!2d34.40808693420224!3d31.50172527745371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14fd7f1e7b49c7e9%3A0xe9d3f47c1dc5a4c4!2sGaza!5e0!3m2!1sen!2s!4v1690399214876!5m2!1sen!2s}\"",
+			"    width=\"${2:600}\"",
+			"    height=\"${3:450}\"",
+			"    style=\"border: 0\"",
+			"    allowfullscreen=\"\"",
+			"    loading=\"lazy\"",
+			"    referrerpolicy=\"no-referrer-when-downgrade\"",
+			"></iframe>"
 		]
 	},
 	"note": {
@@ -322,7 +366,7 @@
 			"  to: ${7:2-url}",
 			"  target: _blank",
 			"  ---",
-			"  ${8:List of Nuxt CLI commands to init, analyze, build, and preview your application.}",
+			"  ${8:2-url}",
 			"  ::",
 			"::"
 		]
@@ -399,8 +443,33 @@
 			"  ---",
 			"",
 			"  ::callout",
-			"  ${1:preview}",
+			"  ${2:preview}",
 			"  ::",
+			"  ::",
+			"::"
+		]
+	},
+	"tabs": {
+		"scope": "markdown",
+		"prefix": "tabs",
+		"body": [
+			"::tabs",
+			"  ::div",
+			"  ---",
+			"  label: ${1:tab-1}",
+			"  icon: ${2:i-heroicons-cpu-chip}",
+			"  ---",
+			"",
+			"  ${3:content-1}",
+			"  ::",
+			"",
+			"  ::div",
+			"  ---",
+			"  label: ${4:tab-2}",
+			"  icon: ${5:i-heroicons-arrow-down-on-square-16-solid}",
+			"  ---",
+			"",
+			"  ${6:content-2}",
 			"  ::",
 			"::"
 		]
@@ -410,6 +479,15 @@
 		"prefix": "shortcut",
 		"body": [
 			":shortcut{value=\"${1:Shift}\"} :shortcut{value=\"${2:meta}\"} :shortcut{value=\"${3:Space}\"}"
+		]
+	},
+	"table": {
+		"scope": "markdown",
+		"prefix": "table",
+		"body": [
+			"| ${1:th1}             | ${2:th2}        | ${3:th3}                        |",
+			"| ----------------| ---------- | -------------------------- |",
+			"| ${4:td1}             | ${5:td2}        | ${6:td3}                        |"
 		]
 	},
 	"api-table": {
