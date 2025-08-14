@@ -60,3 +60,6 @@ code --list-extensions --loc wsl:Ubuntu | % { code --uninstall-extension $_ }
 rm -rf ~/.vscode-remote-containers/ ~/.vscode-server/
 rm -rf $env:USERPROFILE\vs-code-remotewsl
 
+## Flow
+
+login to your GitHub account then run install.ps1

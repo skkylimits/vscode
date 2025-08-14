@@ -13,7 +13,7 @@
     // "workbench.startupEditor": "newUntitledFile",
     "workbench.tree.indent": 9,
     // "workbench.productIconTheme": "icons-carbon",
-    "workbench.iconTheme": "vs-seti",
+    "workbench.iconTheme": "file-icons",
     "workbench.editor.closeOnFileDelete": true,
     "workbench.editor.highlightModifiedTabs": true,
     "workbench.editor.limit.enabled": true,
