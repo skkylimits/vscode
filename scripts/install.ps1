@@ -46,17 +46,27 @@ Write-Host "✅ Alles is gesynchroniseerd: Settings, Keybindings, Snippets"
 ##########    Extensions    #########
 #####################################
 
-code --install-extension ms-vscode-remote.remote-wsl `
-     --install-extension antfu.browse-lite `
-     --install-extension antfu.file-nesting `
-     --install-extension antfu.iconify `
-     --install-extension antfu.open-in-github-button `
-     --install-extension antfu.vite `
-     --install-extension antfu.where-am-i `
-     --install-extension fabiospampinato.vscode-open-in-github `
-     --install-extension file-icons.file-icons `
-     --install-extension github.copilot `
-     --install-extension github.copilot-chat
+# URL van je extensions.json
+$extensionsUrl = "https://raw.githubusercontent.com/skkylimits/vscode/refs/heads/main/.vscode/extensions.json"
+
+# Tijdelijk bestand voor de JSON
+$tmpFile = "$env:TEMP\extensions.json"
+
+# Download het JSON bestand
+Invoke-WebRequest -Uri $extensionsUrl -OutFile $tmpFile
+
+# Lees het JSON bestand
+$extensions = Get-Content $tmpFile | ConvertFrom-Json
+
+# Loop door alle recommendations en installeer
+foreach ($ext in $extensions.recommendations) {
+    if ($ext -and -not ($ext.StartsWith("//"))) {  # negeer commented lines
+        Write-Host "Installing $ext..."
+        code --install-extension $ext --force
+    }
+}
+
+Write-Host "Alle extensies zijn geïnstalleerd."
 
 ###############################
 ##########    Sync    #########
@@ -67,6 +77,6 @@ code --install-extension ms-vscode-remote.remote-wsl `
 # Tasks ✅
 # MCP Servers
 # UI state ✅
-# Extensions
+# Extensions ✅
 # Profiles
 # Prompt and Instructions
