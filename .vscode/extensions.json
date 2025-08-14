@@ -76,6 +76,6 @@
     // Azure
     "ms-azuretools.vscode-docker",
     "ms-azuretools.vscode-containers",
-    "ms-azuretools.vscode-docker",
+    "ms-azuretools.vscode-docker"
   ]
 }
