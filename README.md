@@ -54,7 +54,6 @@ Let's create one ourselves!
 %USERPROFILE%\.vscode
 %USERPROFILE%\.vscode\extensions
 
-
 rm -rf $env:USERPROFILE\Code
 rm -rf $env:USERPROFILE\.vscode\
 code --list-extensions --loc wsl:Ubuntu | % { code --uninstall-extension $_ }

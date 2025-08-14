@@ -13,7 +13,7 @@
     // "workbench.startupEditor": "newUntitledFile",
     "workbench.tree.indent": 9,
     // "workbench.productIconTheme": "icons-carbon",
-    "workbench.iconTheme": "file-icons",
+    "workbench.iconTheme": "vs-seti",
     "workbench.editor.closeOnFileDelete": true,
     "workbench.editor.highlightModifiedTabs": true,
     "workbench.editor.limit.enabled": true,
@@ -27,7 +27,6 @@
     // "window.titleBarStyle": "custom",
     "window.newWindowDimensions": "inherit",
     
-  
     // ========== Performance ==========
     "files.watcherExclude": {
         "**/.git/objects/**": false,

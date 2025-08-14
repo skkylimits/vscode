@@ -9,61 +9,54 @@ $settingsUrl = "https://raw.githubusercontent.com/skkylimits/vscode/refs/heads/m
 $settingsPath = "$env:APPDATA\Code\User"
 $settingsFile = "$settingsPath\settings.json"
 
-# Zorg dat de map bestaat
-if (-not (Test-Path $settingsPath)) {
-    New-Item -ItemType Directory -Path $settingsPath -Force
-}
-
-# Verwijder oud bestand als het bestaat
-if (Test-Path $settingsFile) {
-    Remove-Item $settingsFile -Force
-}
-
-# Download de settings
-Invoke-WebRequest -Uri $settingsUrl -OutFile $settingsFile
-
-Write-Host "VS Code settings zijn geïnstalleerd in $settingsPath"
-
-#########################################
-########## Keyboard Shortcuts ###########
-#########################################
-
-# Zet de URL van je keybindings
-$keybindingsUrl = "https://raw.githubusercontent.com/skkylimits/vscode/refs/heads/main/.vscode/keybindings.json"
-
-# VS Code keybindings pad (Windows)
-$keybindingsPath = "$env:APPDATA\Code\User\keybindings.json"
-
-# Download de keybindings en overschrijf het huidige bestand
-Invoke-WebRequest -Uri $keybindingsUrl -OutFile $keybindingsPath
-
-Write-Host "Keybindings zijn geïnstalleerd in $keybindingsPath"
-
 ###############################
-########## Snippets ###########
+########### Install ###########
 ###############################
 
-# Zet de URL van je snippets
-$snippetUrl = "https://raw.githubusercontent.com/skkylimits/vscode/refs/heads/main/.vscode/global.code-snippets"
+# Definieer alle items: settings, keybindings, snippets
+$items = @(
+    @{ Name="Settings";       Url="https://raw.githubusercontent.com/skkylimits/vscode/refs/heads/main/.vscode/settings.json";       Path="$env:APPDATA\Code\User"; File="settings.json" },
+    @{ Name="Keybindings";    Url="https://raw.githubusercontent.com/skkylimits/vscode/refs/heads/main/.vscode/keybindings.json";    Path="$env:APPDATA\Code\User"; File="keybindings.json" },
+    @{ Name="Snippets";       Url="https://raw.githubusercontent.com/skkylimits/vscode/refs/heads/main/.vscode/global.code-snippets"; Path="$env:APPDATA\Code\User\snippets"; File="global.code-snippets" }
+)
 
-# VS Code snippets pad (Windows)
-$snippetsPath = "$env:APPDATA\Code\User\snippets"
-$snippetFile = "$snippetsPath\global.code-snippets"
+# Loop door elk item
+foreach ($item in $items) {
+    # Zorg dat de map bestaat
+    if (-not (Test-Path $item.Path)) {
+        New-Item -ItemType Directory -Path $item.Path -Force | Out-Null
+    }
 
-# Zorg dat de map bestaat
-if (-not (Test-Path $snippetsPath)) {
-    New-Item -ItemType Directory -Path $snippetsPath -Force
+    $fullPath = Join-Path $item.Path $item.File
+
+    # Verwijder oud bestand als het bestaat
+    if (Test-Path $fullPath) {
+        Remove-Item $fullPath -Force
+    }
+
+    # Download het bestand
+    Invoke-WebRequest -Uri $item.Url -OutFile $fullPath
+
+    Write-Host "$($item.Name) is geïnstalleerd in $($item.Path)"
 }
 
-# Verwijder oud bestand als het bestaat
-if (Test-Path $snippetFile) {
-    Remove-Item $snippetFile -Force
-}
+Write-Host "✅ Alles is gesynchroniseerd: Settings, Keybindings, Snippets"
 
-# Download de snippets
-Invoke-WebRequest -Uri $snippetUrl -OutFile $snippetFile
+#####################################
+##########    Extensions    #########
+#####################################
 
-Write-Host "Snippets zijn geïnstalleerd in $snippetsPath"
+code --install-extension ms-vscode-remote.remote-wsl `
+     --install-extension antfu.browse-lite `
+     --install-extension antfu.file-nesting `
+     --install-extension antfu.iconify `
+     --install-extension antfu.open-in-github-button `
+     --install-extension antfu.vite `
+     --install-extension antfu.where-am-i `
+     --install-extension fabiospampinato.vscode-open-in-github `
+     --install-extension file-icons.file-icons `
+     --install-extension github.copilot `
+     --install-extension github.copilot-chat
 
 ###############################
 ##########    Sync    #########
@@ -71,7 +64,7 @@ Write-Host "Snippets zijn geïnstalleerd in $snippetsPath"
 # Settings ✅
 # Keyboard Shortcuts ✅
 # Snippets ✅
-# Tasks
+# Tasks ✅
 # MCP Servers
 # UI state
 # Extensions
