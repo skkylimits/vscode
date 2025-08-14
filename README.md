@@ -49,9 +49,11 @@ Let's create one ourselves!
 ## Manual Cleaning
 
 %APPDATA%\Code
-%APPDATA%\Code\User\snippets
+%APPDATA%\Code\User\settings.json
+%APPDATA%\Code\User\snippets\global.code-snippets
 %USERPROFILE%\.vscode
 %USERPROFILE%\.vscode\extensions
+
 
 rm -rf $env:USERPROFILE\Code
 rm -rf $env:USERPROFILE\.vscode\
