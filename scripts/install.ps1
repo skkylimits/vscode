@@ -66,7 +66,7 @@ code --install-extension ms-vscode-remote.remote-wsl `
 # Snippets ✅
 # Tasks ✅
 # MCP Servers
-# UI state
+# UI state ✅
 # Extensions
 # Profiles
-# Prom and Instructions
+# Prompt and Instructions
