@@ -1,72 +1,45 @@
 ###############################
-########## Settings ###########
-###############################
-
-# Zet de URL van je settings
-$settingsUrl = "https://raw.githubusercontent.com/skkylimits/vscode/refs/heads/main/.vscode/settings.json"
-
-# VS Code settings pad (Windows)
-$settingsPath = "$env:APPDATA\Code\User"
-$settingsFile = "$settingsPath\settings.json"
-
-###############################
 ########### Install ###########
 ###############################
 
 # Definieer alle items: settings, keybindings, snippets
 $items = @(
-    @{ Name="Settings";       Url="https://raw.githubusercontent.com/skkylimits/vscode/refs/heads/main/.vscode/settings.json";       Path="$env:APPDATA\Code\User"; File="settings.json" },
-    @{ Name="Keybindings";    Url="https://raw.githubusercontent.com/skkylimits/vscode/refs/heads/main/.vscode/keybindings.json";    Path="$env:APPDATA\Code\User"; File="keybindings.json" },
-    @{ Name="Snippets";       Url="https://raw.githubusercontent.com/skkylimits/vscode/refs/heads/main/.vscode/global.code-snippets"; Path="$env:APPDATA\Code\User\snippets"; File="global.code-snippets" }
+    @{ Name="Settings";       Url="https://raw.githubusercontent.com/skkylimits/vscode/refs/heads/main/.vscode/settings.json";       Path="$env:APPDATA\Code\User"; File="settings.json"; Type="file" },
+    @{ Name="Keybindings";    Url="https://raw.githubusercontent.com/skkylimits/vscode/refs/heads/main/.vscode/keybindings.json";    Path="$env:APPDATA\Code\User"; File="keybindings.json"; Type="file" },
+    @{ Name="Snippets";       Url="https://raw.githubusercontent.com/skkylimits/vscode/refs/heads/main/.vscode/global.code-snippets"; Path="$env:APPDATA\Code\User\snippets"; File="global.code-snippets"; Type="file" },
+    @{ Name="Extensions";     Url="https://raw.githubusercontent.com/skkylimits/vscode/refs/heads/main/.vscode/extensions.json";     Path="$env:TEMP"; File="extensions.json"; Type="extensions" }
 )
 
-# Loop door elk item
 foreach ($item in $items) {
-    # Zorg dat de map bestaat
-    if (-not (Test-Path $item.Path)) {
-        New-Item -ItemType Directory -Path $item.Path -Force | Out-Null
-    }
+    if (-not (Test-Path $item.Path)) { New-Item -ItemType Directory -Path $item.Path -Force | Out-Null }
 
     $fullPath = Join-Path $item.Path $item.File
 
-    # Verwijder oud bestand als het bestaat
-    if (Test-Path $fullPath) {
-        Remove-Item $fullPath -Force
-    }
+    if (Test-Path $fullPath) { Remove-Item $fullPath -Force }
 
-    # Download het bestand
     Invoke-WebRequest -Uri $item.Url -OutFile $fullPath
 
-    Write-Host "$($item.Name) is geïnstalleerd in $($item.Path)"
-}
+    if ($item.Type -eq "file") {
+        Write-Host "$($item.Name) is geïnstalleerd in $($item.Path)"
+    }
+    elseif ($item.Type -eq "extensions") {
+        # Verwijder commentaarregels en converteer naar object
+        $jsonText = Get-Content $fullPath -Raw
+        $jsonText = ($jsonText -split "`n" | Where-Object { $_ -notmatch '^\s*//' }) -join "`n"
+        $extensions = $jsonText | ConvertFrom-Json
 
-Write-Host "✅ Alles is gesynchroniseerd: Settings, Keybindings, Snippets"
+        foreach ($ext in $extensions.recommendations) {
+            if ($ext) {
+                Write-Host "Installing $ext..."
+                code --install-extension $ext --force
+            }
+        }
 
-#####################################
-##########    Extensions    #########
-#####################################
-
-# URL van je extensions.json
-$extensionsUrl = "https://raw.githubusercontent.com/skkylimits/vscode/refs/heads/main/.vscode/extensions.json"
-
-# Tijdelijk bestand voor de JSON
-$tmpFile = "$env:TEMP\extensions.json"
-
-# Download het JSON bestand
-Invoke-WebRequest -Uri $extensionsUrl -OutFile $tmpFile
-
-# Lees het JSON bestand
-$extensions = Get-Content $tmpFile | ConvertFrom-Json
-
-# Loop door alle recommendations en installeer
-foreach ($ext in $extensions.recommendations) {
-    if ($ext -and -not ($ext.StartsWith("//"))) {  # negeer commented lines
-        Write-Host "Installing $ext..."
-        code --install-extension $ext --force
+        Write-Host "Alle extensies zijn geïnstalleerd."
     }
 }
 
-Write-Host "Alle extensies zijn geïnstalleerd."
+Write-Host "✅ Alles is gesynchroniseerd"
 
 ###############################
 ##########    Sync    #########
