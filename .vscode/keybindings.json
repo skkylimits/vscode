@@ -17,7 +17,7 @@
         "command": "workbench.files.action.collapseExplorerFolders" // Collapse folders
     },
     {
-        "key": "ctrl+shift+alt+.",
+        "key": "ctrl+shift+/",
         "command": "editor.action.insertSnippet", // Insert console.log snippet
         "args": {
             "snippet": "console.log($1);$2"

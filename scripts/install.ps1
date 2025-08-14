@@ -24,6 +24,20 @@ Invoke-WebRequest -Uri $settingsUrl -OutFile $settingsFile
 
 Write-Host "VS Code settings zijn geïnstalleerd in $settingsPath"
 
+#########################################
+########## Keyboard Shortcuts ###########
+#########################################
+
+# Zet de URL van je keybindings
+$keybindingsUrl = "https://raw.githubusercontent.com/skkylimits/vscode/refs/heads/main/.vscode/keybindings.json"
+
+# VS Code keybindings pad (Windows)
+$keybindingsPath = "$env:APPDATA\Code\User\keybindings.json"
+
+# Download de keybindings en overschrijf het huidige bestand
+Invoke-WebRequest -Uri $keybindingsUrl -OutFile $keybindingsPath
+
+Write-Host "Keybindings zijn geïnstalleerd in $keybindingsPath"
 
 ###############################
 ########## Snippets ###########
