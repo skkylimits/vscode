@@ -13,7 +13,7 @@
     // "workbench.startupEditor": "newUntitledFile",
     "workbench.tree.indent": 9,
     // "workbench.productIconTheme": "icons-carbon",
-    "workbench.iconTheme": "file-icons",
+    "workbench.iconTheme": "vs-seti",
     "workbench.editor.closeOnFileDelete": true,
     "workbench.editor.highlightModifiedTabs": true,
     "workbench.editor.limit.enabled": true,
@@ -57,6 +57,11 @@
         "comments": false,
         "strings": false
     },
+
+    // ========== Markdown ==========
+    "markdown.copyFiles.destination": {
+		"**/*": "/public/${documentRelativeDirName}/${documentBaseName}/"
+	},
  
     // ========== Debug ==========
     "debug.onTaskErrors": "debugAnyway",
