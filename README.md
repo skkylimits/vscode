@@ -46,3 +46,16 @@ Let's create one ourselves!
 
 [Example](https://www.reddit.com/media?url=https%3A%2F%2Fpreview.redd.it%2F1bx75yoco9g61.gif%3Fwidth%3D1255%26auto%3Dwebp%26s%3Dc7729bb6f843de79bde436976d288da04b1f6295)
 
+## Manual Cleaning
+
+%APPDATA%\Code
+%APPDATA%\Code\User\snippets
+%USERPROFILE%\.vscode
+%USERPROFILE%\.vscode\extensions
+
+rm -rf $env:USERPROFILE\Code
+rm -rf $env:USERPROFILE\.vscode\
+code --list-extensions --loc wsl:Ubuntu | % { code --uninstall-extension $_ }
+rm -rf ~/.vscode-remote-containers/ ~/.vscode-server/
+rm -rf $env:USERPROFILE\vs-code-remotewsl
+
